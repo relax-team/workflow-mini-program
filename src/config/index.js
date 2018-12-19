@@ -3,6 +3,7 @@
 export default {
     api: "https://api.yourdomain.com",  //正式API域名地址
     amap_key: 'a8a06158a8034e1e4da698bfa6827b55',   //高德地图开发者key
+    kf_phone: '400-820-5555',
     //定位信息
     location: {
         //默认

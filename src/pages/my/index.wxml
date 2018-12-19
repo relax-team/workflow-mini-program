@@ -45,12 +45,12 @@
     </view>
     <view class="menu-item">
         <image class="icon icon_wechat" src="icons/icon_consultation.png" mode="widthFix"></image>
-        <button class="menu-title" open-type="contact" bindcontact="handleContact" size="mini" plain>客服微信咨询</button>
+        <button class="menu-title" open-type="contact" bindcontact="handleContact" size="mini" plain>联系客服</button>
         <view class="u-arrow right"></view>
     </view>
     <view class="menu-item">
         <image class="icon icon_wechat" src="icons/icon_phone.png" mode="widthFix"></image>
-        <button class="menu-title" bindtap="handlePhoneCall" size="mini" plain>客服电话咨询</button>
+        <button class="menu-title" bindtap="handlePhoneCall" size="mini" plain>电话咨询</button>
         <view class="u-arrow right"></view>
     </view>
 </view>
