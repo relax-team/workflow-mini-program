@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/category/index",
+    "pages/cart/index",
+    "pages/my/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "电子商城",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f2f2f2"
+  },
+  "tabBar": {
+    "color": "#777",
+    "selectedColor": "#BA0000",
+    "borderStyle": "#f0f0f0",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "iconPath": "images/tabbar/index.png",
+      "selectedIconPath": "images/tabbar/index_active.png",
+      "text": "首页"
+      },{
+      "pagePath": "pages/category/index",
+      "iconPath": "images/tabbar/category.png",
+      "selectedIconPath": "images/tabbar/category_active.png",
+      "text": "分类"
+      },{
+      "pagePath": "pages/cart/index",
+      "iconPath": "images/tabbar/cart.png",
+      "selectedIconPath": "images/tabbar/cart_active.png",
+      "text": "购物车"
+      },
+      {
+      "pagePath": "pages/my/index",
+      "iconPath": "images/tabbar/my.png",
+      "selectedIconPath": "images/tabbar/my_active.png",
+      "text": "我的"
+      }
+    ]
+  }
+}
