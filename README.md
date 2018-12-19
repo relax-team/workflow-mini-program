@@ -16,7 +16,7 @@
 
 ### 项目结构设计
 
-现今已有很多基于webpack打包进行开发的小程序开发框架，比较知名的有美团小程序框架`[mpvue](https://github.com/Meituan-Dianping/mpvue)`和腾讯开源的`[wepy](https://github.com/Tencent/wepy)`。
+现今已有很多基于webpack打包进行开发的小程序开发框架，比较知名的有美团小程序框架[mpvue](https://github.com/Meituan-Dianping/mpvue)和腾讯开源的[wepy](https://github.com/Tencent/wepy)。
 
 对于vue开发和webpack打包比较熟悉的同学，以及希望后期能进一步开发，web端、小程序、weex共用一套代码打包出多端通用的应用程序，建议尝试了解使用。
 但随着微信官网对于小程序组件化开发的进一步支持，以及开发的曲线越来越低，直接使用官方开发规范进行开发，使用gulp类工具打包会更加便捷。
