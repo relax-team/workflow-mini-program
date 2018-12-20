@@ -1,0 +1,3 @@
+.item{overflow: hidden;padding: 20rpx;}
+.item-title{margin-bottom: 20rpx;}
+.item-content{}

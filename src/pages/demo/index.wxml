@@ -1,0 +1,8 @@
+<view class="list">
+    <view class="item">
+        <view class="item-title">数量加减组件</view>
+        <view class="item-content">
+            <component-quantity bind:change="onQuantityChange"></component-quantity>
+        </view>
+    </view>
+</view>
