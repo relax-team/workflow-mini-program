@@ -3,8 +3,16 @@
         "pages/index/index",
         "pages/category/index",
         "pages/cart/index",
-        "pages/my/index",
-        "pages/demo/index"
+        "pages/my/index"
+    ],
+    "subpackages":[
+        {
+            "root": "subPages",
+            "name": "subpackages",
+            "pages": [
+                "demo/index"
+            ]
+        }
     ],
     "window": {
         "backgroundTextStyle": "dark",
