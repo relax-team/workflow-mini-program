@@ -1,0 +1,5 @@
+/**侧滑删除**/
+.slide-menu{position:relative;overflow:hidden;width:100%;height:150rpx;border-bottom: 1rpx solid #f2f2f2;}
+.menu-content{position:absolute;top:0;left:0;z-index:100;width:100%;height:100%;background-color:#FFF}
+.menu-option{position:absolute;top:0;left:0;z-index:0;display:flex;width:100%;height:100%;justify-content:flex-end}
+.menu-delete{width:150rpx;height:100%;background-color:#ff3a32;color:#FFF;text-align:center;line-height:150rpx}

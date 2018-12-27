@@ -17,7 +17,7 @@
     "window": {
         "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "电子商城",
+        "navigationBarTitleText": "小程序商城",
         "navigationBarTextStyle": "black",
         "backgroundColor": "#f2f2f2"
     },
@@ -55,6 +55,7 @@
     },
     "usingComponents": {
         "component-sku": "./components/sku/index",
-        "component-quantity": "./components/quantity/index"
+        "component-quantity": "./components/quantity/index",
+        "component-slide-menu": "./components/slide-menu/index"
     }
 }

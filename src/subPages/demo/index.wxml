@@ -1,8 +1,16 @@
 <view class="list">
-    <view class="item">
+    <view class="item quantity">
         <view class="item-title">数量加减组件</view>
         <view class="item-content">
             <component-quantity bind:change="onQuantityChange"></component-quantity>
+        </view>
+    </view>
+    <view class="item slide-menu">
+        <view class="item-title">侧滑菜单</view>
+        <view class="item-content">
+            <component-slide-menu class="slide-menu-wrapper" wx:for="{{slideMenu.list}}" wx:key="{{item.id}}" item="{{item}}" key="id" bind:delete="onDelete">
+                <view class="title">{{item.title}}</view>
+            </component-slide-menu>
         </view>
     </view>
 </view>
