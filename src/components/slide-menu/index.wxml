@@ -1,9 +1,9 @@
 <!--侧滑菜单-->
 <view class="slide-menu" animation='{{wrapAnimation}}'>
-    <view data-id='{{item[key]}}' class='menu-content' animation='{{animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
+    <view data-id='{{item[key]}}' class='slide-content' animation='{{animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
         <slot></slot>
     </view>
-    <view class='menu-option'>
+    <view class='slide-option'>
         <view data-id='{{item[key]}}' class='menu-delete' bindtap='onSlideMenuDelete'>删除</view>
     </view>
 </view>
