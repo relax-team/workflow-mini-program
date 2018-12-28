@@ -8,7 +8,7 @@
     <view class="item slide-menu">
         <view class="item-title">侧滑菜单</view>
         <view class="item-content">
-            <component-slide-menu class="slide-menu-wrapper" wx:for="{{slideMenu.list}}" wx:key="{{item.id}}" item="{{item}}" key="id" bind:delete="onDelete">
+            <component-slide-menu class="slide-menu-wrapper" wx:for="{{slideMenu.list}}" wx:key="{{item.id}}" data-item="{{item}}" bind:delete="onDelete">
                 <view class="title">{{item.title}}</view>
             </component-slide-menu>
         </view>

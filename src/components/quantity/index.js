@@ -15,7 +15,6 @@ Component({
        * 数量减少
        * */
         quantity_decrement() {
-            this.data.acted = true;
             let _count = this.data.quantity - 1, _min = 1;
             if (_count < _min) return false;
             this.setData({
@@ -27,7 +26,6 @@ Component({
         * 数量增加
         * */
         quantity_increment() {
-            this.data.acted = true;
             let _count = this.data.quantity + 1, _max = this.data.quantityLimit;
             if (_count > _max) return false;
             this.setData({

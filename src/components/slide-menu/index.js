@@ -1,27 +1,17 @@
 Component({
-    properties: {
-        item: {
-            type: Object,
-            value: {}
-        },
-        key: {
-            type: String,
-            value: 'id'
-        }
-    },
+    properties: {},
     data: {
         height: 0,
         scrollY: true,
-        swipeCheckX: 35, //激活检测滑动的阈值
-        swipeCheckState: 0, //0未激活 1激活
-        maxMoveLeft: 75, //消息列表项最大左滑距离
-        correctMoveLeft: 75, //显示菜单时的左滑距离
-        thresholdMoveLeft: 38,//左滑阈值，超过则显示菜单
-        lastItemId: '', //记录上次显示菜单的index
-        moveX: 0,  //记录平移距离
-        showState: 0, //0 未显示菜单 1显示菜单
-        touchStartState: 0, // 开始触摸时的状态 0 未显示菜单 1 显示菜单
-        swipeDirection: 0, //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
+        swipeCheckX: 35,            //激活检测滑动的阈值
+        swipeCheckState: 0,         //0未激活 1激活
+        maxMoveLeft: 75,            //列表项最大左滑距离
+        correctMoveLeft: 75,        //显示菜单时的左滑距离
+        thresholdMoveLeft: 38,      //左滑阈值，超过则显示菜单
+        moveX: 0,                   //记录平移距离
+        showState: 0,               //0 未显示菜单 1显示菜单
+        touchStartState: 0,         // 开始触摸时的状态 0 未显示菜单 1 显示菜单
+        swipeDirection: 0,          //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
     },
     methods: {
         ontouchstart(e) {
@@ -30,7 +20,6 @@ Component({
                 this.data.showState = 0;
                 this.data.moveX = 0;
                 this.translateXItem(0, 200);
-                this.data.lastItemId = 0;
                 return;
             }
             this.firstTouchX = e.touches[0].clientX;
@@ -38,7 +27,6 @@ Component({
             if (this.firstTouchX > this.data.swipeCheckX) {
                 this.data.swipeCheckState = 1;
             }
-            this.lastMoveTime = e.timeStamp;
         },
 
         ontouchmove(e) {
@@ -76,7 +64,6 @@ Component({
             //   this.setData({scrollY:false});
             // }
 
-            this.lastMoveTime = e.timeStamp;
             //处理边界情况
             if (moveX > 0) {
                 moveX = 0;
@@ -89,7 +76,6 @@ Component({
             this.translateXItem(moveX, 0);
         },
         ontouchend(e) {
-            const itemId = e.currentTarget.dataset.id;
             this.data.swipeCheckState = 0;
             let swipeDirection = this.data.swipeDirection;
             this.data.swipeDirection = 0;
@@ -110,13 +96,11 @@ Component({
             }
             if (this.data.moveX === this.data.correctMoveLeft) {
                 this.data.showState = 1;
-                this.data.lastItemId = itemId;
                 return;
             }
             if (this.data.moveX < -this.data.thresholdMoveLeft) {
                 this.data.moveX = -this.data.correctMoveLeft;
                 this.data.showState = 1;
-                this.data.lastItemId = itemId;
             } else {
                 this.data.moveX = 0;
                 this.data.showState = 0;
@@ -126,23 +110,25 @@ Component({
 
             this.translateXItem(this.data.moveX, 500);
         },
-        onSlideMenuDelete(e) {
-            const itemId = e.currentTarget.dataset.id;
-            let animation = wx.createAnimation({duration: 200});
-            animation.height(0).opacity(0).step();
-            this.setData({
-                wrapAnimation: animation.export()
-            });
-            this.data.showState = 0;
-            this.setData({scrollY: true});
-            this.triggerEvent('delete', itemId);    // 通知当前删除的itemId
-        },
         translateXItem(moveX, duration) {
             let animation = wx.createAnimation({duration: duration});
             animation.translateX(moveX).step();
             this.setData({
                 animation: animation.export()
             });
+        },
+        /*
+        * 刪除操作
+        * */
+        onSlideMenuDelete(e) {
+            let animation = wx.createAnimation({duration: 200});
+            animation.height(0).opacity(0).step();
+            this.setData({
+                wrapAnimation: animation.export(),
+                scrollY: true
+            });
+            this.data.showState = 0;
+            this.triggerEvent('delete');    // 通知当前删除的itemId
         },
     },
 

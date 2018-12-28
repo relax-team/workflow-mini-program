@@ -23,6 +23,7 @@ Page({
     * 数量变化
     * */
     onQuantityChange(e) {
+        console.info('当前数量变化为： ', e);
         this.setData({
             quantity: e.detail
         });
@@ -31,6 +32,6 @@ Page({
     * 侧滑菜单操作
     * */
     onDelete(e) {
-        console.log('当前删除的ID为： ', e.detail)
+        console.info('当前侧滑菜单操作为： ', e);
     }
 });
