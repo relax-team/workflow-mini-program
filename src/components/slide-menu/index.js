@@ -146,11 +146,7 @@ Component({
             this.data.showState = 0;
 
             //回调函数
-            if(cb){
-                this.wait(duration).then(() => {
-                    cb();
-                });
-            }
+            cb && this.wait(duration).then(cb);
         },
         /*
         * setTimeout
