@@ -1,5 +1,9 @@
 Component({
     properties: {
+        height: {
+            type: Number,
+            value: 150
+        },
         callback: {
             type: Boolean,
             default: false

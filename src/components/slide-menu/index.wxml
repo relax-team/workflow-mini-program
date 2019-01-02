@@ -1,5 +1,5 @@
 <!--侧滑菜单-->
-<view class="slide-menu" animation='{{wrapAnimation}}'>
+<view class="slide-menu" animation='{{wrapAnimation}}' style="height: {{height}}rpx">
     <view class='slide-content' animation='{{animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
         <slot></slot>
     </view>
