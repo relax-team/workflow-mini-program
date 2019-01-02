@@ -115,7 +115,7 @@ const decodeUserInfo = async () => {
   });
 
   //成功获取用户信息
-  if (session) {
+  if (session && session.data) {
     //{"session_key":"7LWhkZRqwRkbUvqODOnMfg==","openid":"oz2cB5ZI9T-vaHz1MXekyBwwUc8c"}
     userInfo = {openid: session.data};
     //存储到本地缓存
@@ -169,8 +169,8 @@ const request = async (opt) => {
 
       //是否需要用户登录信息
       if (opt.login) {
-        const {memberId, token} = await login(true);
-        Object.assign(option.header, {memberId, token});
+        const {openid} = await login();
+        Object.assign(option.header, {openid});
       }
       break;
   }

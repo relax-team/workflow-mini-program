@@ -1,5 +1,10 @@
 Component({
-    properties: {},
+    properties: {
+        callback: {
+            type: Boolean,
+            default: false
+        }
+    },
     data: {
         height: 0,
         scrollY: true,
@@ -121,15 +126,40 @@ Component({
         * 刪除操作
         * */
         onSlideMenuDelete(e) {
-            let animation = wx.createAnimation({duration: 200});
+            this.triggerEvent('delete');
+            if(!this.callback){
+               this.removeDom();
+            }
+        },
+        /*
+        * 移出dom
+        * this.selectComponent(id).removeDom(callback);
+        * */
+        removeDom(cb) {
+            const duration = 200;
+            let animation = wx.createAnimation({duration});
             animation.height(0).opacity(0).step();
             this.setData({
                 wrapAnimation: animation.export(),
                 scrollY: true
             });
             this.data.showState = 0;
-            this.triggerEvent('delete');    // 通知当前删除的itemId
+
+            //回调函数
+            if(cb){
+                this.wait(duration).then(() => {
+                    cb();
+                });
+            }
         },
+        /*
+        * setTimeout
+        * */
+        wait(delay) {
+            return new Promise(resolve => {
+                setTimeout(resolve, delay || 0);
+            })
+        }
     },
 
 });
