@@ -2,4 +2,8 @@
 .item-title{margin-bottom: 20rpx;}
 .item-content{}
 
-.slide-menu .title{line-height: 150rpx;padding-left: 10rpx;}
+.slide-menu-wrapper .title{line-height: 150rpx;padding-left: 10rpx;}
+
+#dialog .title{padding:20rpx 0;border-bottom:1rpx solid #f0f0f0;text-align:center;font-size:34rpx;margin-bottom: 20rpx;}
+#dialog .content{padding:10vh 0;text-align: center;}
+#dialog .btn-confirm{padding:20rpx 44rpx;font-size:32rpx;color: #fff;background: #ff4d61;text-align: center;}

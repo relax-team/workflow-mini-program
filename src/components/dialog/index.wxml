@@ -1,0 +1,16 @@
+<view class="dialog {{className}} {{ show ? 'dialog_show' : '' }}">
+
+    <!--遮罩-->
+    <view class="dialog__mask" catchtap="hide"/>
+
+    <!--container-->
+    <view class="dialog__container">
+        <!--右上角关闭按钮-->
+        <view class="close" catchtap="hide"></view>
+        <slot></slot>
+    </view>
+</view>
+
+
+
+

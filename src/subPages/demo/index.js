@@ -14,6 +14,9 @@ Page({
                 id: 456,
                 title: '测试侧滑菜单组件456'
             }]
+        },
+        dialog: {
+            show: false
         }
     },
     onLoad() {
@@ -33,5 +36,17 @@ Page({
     * */
     onDelete(e) {
         console.info('当前侧滑菜单操作为： ', e);
+    },
+    /*
+    * 显示dialog
+    * */
+    dialogShow() {
+        this.selectComponent('#dialog').show();
+    },
+    /*
+    * 显示dialog
+    * */
+    dialogConfirm() {
+        this.selectComponent('#dialog').hide();
     }
 });

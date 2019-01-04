@@ -13,4 +13,15 @@
             </component-slide-menu>
         </view>
     </view>
+    <view class="item slide-menu">
+        <view class="item-title">dialog</view>
+        <view class="item-content">
+            <button class="u-btn btn-dialog" bindtap="dialogShow">点击显示</button>
+            <component-dialog id="dialog" show="{{dialog.show}}">
+                <view class="title">这是dialog标题</view>
+                <view class="content">这是dialog内容</view>
+                <view class="btn-confirm" catchtap="dialogConfirm">确定</view>
+            </component-dialog>
+        </view>
+    </view>
 </view>
