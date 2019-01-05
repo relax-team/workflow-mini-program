@@ -57,6 +57,7 @@
         "component-dialog": "./components/dialog/index",
         "component-sku": "./components/sku/index",
         "component-quantity": "./components/quantity/index",
-        "component-slide-menu": "./components/slide-menu/index"
+        "component-slide-menu": "./components/slide-menu/index",
+        "component-image": "./components/image/index"
     }
 }

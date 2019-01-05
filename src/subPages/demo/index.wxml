@@ -1,11 +1,11 @@
 <view class="list">
-    <view class="item quantity">
+    <view class="item item-quantity">
         <view class="item-title">数量加减组件</view>
         <view class="item-content">
             <component-quantity bind:change="onQuantityChange"></component-quantity>
         </view>
     </view>
-    <view class="item slide-menu">
+    <view class="item item-slide-menu">
         <view class="item-title">侧滑菜单</view>
         <view class="item-content">
             <component-slide-menu class="slide-menu-wrapper" wx:for="{{slideMenu.list}}" wx:key="{{item.id}}" data-item="{{item}}" bind:delete="onDelete">
@@ -13,7 +13,7 @@
             </component-slide-menu>
         </view>
     </view>
-    <view class="item slide-menu">
+    <view class="item item-dialog">
         <view class="item-title">dialog</view>
         <view class="item-content">
             <button class="u-btn btn-dialog" bindtap="dialogShow">点击显示</button>
@@ -22,6 +22,14 @@
                 <view class="content">这是dialog内容</view>
                 <view class="btn-confirm" catchtap="dialogConfirm">确定</view>
             </component-dialog>
+        </view>
+    </view>
+    <view class="item item-image">
+        <view class="item-title">item-image</view>
+        <view class="item-content">
+            <view class="image-wrap">
+                <component-image src="https://img.alicdn.com/tps/TB1R8ihNpXXXXcWXFXXXXXXXXXX-1074-650.png" mode="widthFix"></component-image>
+            </view>
         </view>
     </view>
 </view>
