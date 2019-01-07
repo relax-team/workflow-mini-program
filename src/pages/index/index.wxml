@@ -16,7 +16,7 @@
                 duration="400" indicator-dots="true" circular="true" indicator-color="rgba(255,255,255,.6)"
                 indicator-active-color="#ff4d61">
             <swiper-item wx:for="{{banner}}" wx:key="{{item}}">
-                <navigator url="/subPages/goods/detail/index" class="swiper-item">
+                <navigator url="/subPages/goods/detail/index" class="swiper-item" hover-class="none">
                     <component-image src="{{item}}" mode="scaleToFill"></component-image>
                 </navigator>
             </swiper-item>
