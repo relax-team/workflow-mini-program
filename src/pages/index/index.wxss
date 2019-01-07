@@ -6,3 +6,7 @@
 .navbar .item{display: inline-block;padding: 0 32rpx;}
 .navbar .item .item-txt{display: inline-block;padding: 27rpx 0;}
 .navbar .item.active .item-txt{color: #ff4d61;border-bottom: 4rpx solid #ff4d61;font-weight: 600}
+
+.banner{width:100vw;height: 366rpx;}
+.swiper-item{height: 100%;}
+.container{padding: 20rpx 0;}
