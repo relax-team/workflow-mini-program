@@ -4,5 +4,5 @@
     lazy-load="{{lazyload}}"
     binderror="error"
     bindload="loaded"
-    class="{{visible ? 'visible' : ''}}"
+    class="c-image {{visible ? 'visible' : ''}}"
 ></image>
