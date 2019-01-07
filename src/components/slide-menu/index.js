@@ -10,8 +10,6 @@ Component({
         }
     },
     data: {
-        height: 0,
-        scrollY: true,
         swipeCheckX: 35,            //激活检测滑动的阈值
         swipeCheckState: 0,         //0未激活 1激活
         maxMoveLeft: 75,            //列表项最大左滑距离
@@ -62,16 +60,12 @@ Component({
                 //触发水平操作
                 if (Math.abs(moveX) > 4) {
                     this.data.swipeDirection = 1;
-                    this.setData({scrollY: false});
+                    this.triggerEvent('moving', true);
                 } else {
                     return;
                 }
 
             }
-            //禁用垂直滚动
-            // if (this.data.scrollY) {
-            //   this.setData({scrollY:false});
-            // }
 
             //处理边界情况
             if (moveX > 0) {
@@ -90,7 +84,7 @@ Component({
             this.data.swipeDirection = 0;
             if (this.data.touchStartState === 1) {
                 this.data.touchStartState = 0;
-                this.setData({scrollY: true});
+                this.triggerEvent('moving', false);
                 return;
             }
             //垂直滚动，忽略
@@ -100,7 +94,7 @@ Component({
             if (this.data.moveX === 0) {
                 this.data.showState = 0;
                 //不显示菜单状态下,激活垂直滚动
-                this.setData({scrollY: true});
+                this.triggerEvent('moving', false);
                 return;
             }
             if (this.data.moveX === this.data.correctMoveLeft) {
@@ -114,7 +108,7 @@ Component({
                 this.data.moveX = 0;
                 this.data.showState = 0;
                 //不显示菜单,激活垂直滚动
-                this.setData({scrollY: true});
+                this.triggerEvent('moving', false);
             }
 
             this.translateXItem(this.data.moveX, 500);
@@ -131,8 +125,8 @@ Component({
         * */
         onSlideMenuDelete(e) {
             this.triggerEvent('delete');
-            if(!this.callback){
-               this.removeDom();
+            if (!this.callback) {
+                this.removeDom();
             }
         },
         /*
@@ -144,10 +138,10 @@ Component({
             let animation = wx.createAnimation({duration});
             animation.height(0).opacity(0).step();
             this.setData({
-                wrapAnimation: animation.export(),
-                scrollY: true
+                wrapAnimation: animation.export()
             });
             this.data.showState = 0;
+            this.triggerEvent('moving', false);
 
             //回调函数
             cb && this.wait(duration).then(cb);
