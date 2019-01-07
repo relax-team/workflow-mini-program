@@ -10,7 +10,8 @@
             "root": "subPages",
             "name": "subpackages",
             "pages": [
-                "demo/index"
+                "demo/index",
+                "goods/detail/index"
             ]
         }
     ],

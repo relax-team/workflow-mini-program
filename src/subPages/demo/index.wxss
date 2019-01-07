@@ -10,4 +10,4 @@
 #dialog .content{padding:10vh 0;text-align: center;}
 #dialog .btn-confirm{padding:20rpx 44rpx;font-size:32rpx;color: #fff;background: #ff4d61;text-align: center;}
 
-.image-wrap{padding: 20rpx;}
+.image-wrap{padding: 20rpx;width: 100vw;}

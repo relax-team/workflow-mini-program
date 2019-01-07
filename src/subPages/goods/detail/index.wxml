@@ -1,0 +1,7 @@
+<swiper class="goods-banner" autoplay interval="4000"
+        duration="400" indicator-dots="true" circular="true" indicator-color="rgba(255,255,255,.6)"
+        indicator-active-color="#ff4d61">
+    <swiper-item wx:for="{{goodsBanner}}" wx:key="{{item}}" class="swiper-item">
+        <component-image src="{{item}}" mode="scaleToFill"></component-image>
+    </swiper-item>
+</swiper>
