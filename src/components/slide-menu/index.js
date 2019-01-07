@@ -26,7 +26,7 @@ Component({
                 this.data.touchStartState = 1;
                 this.data.showState = 0;
                 this.data.moveX = 0;
-                this.translateXItem(0, 200);
+                this.translateXItem(0, 300);
                 return;
             }
             this.firstTouchX = e.touches[0].clientX;
@@ -107,11 +107,10 @@ Component({
             } else {
                 this.data.moveX = 0;
                 this.data.showState = 0;
-                //不显示菜单,激活垂直滚动
-                this.triggerEvent('moving', false);
             }
 
-            this.translateXItem(this.data.moveX, 500);
+            this.triggerEvent('moving', false);
+            this.translateXItem(this.data.moveX, 300);
         },
         translateXItem(moveX, duration) {
             let animation = wx.createAnimation({duration: duration});
