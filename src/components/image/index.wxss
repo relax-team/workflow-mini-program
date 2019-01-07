@@ -1,2 +1,2 @@
-.c-image{width: 100%;height: 100%;opacity: 0;}
-.c-image.visible{opacity: 1;transition: .4s;}
+.c-image{width: 100%;height: 100%;opacity: 0;transition: opacity 1.4s;}
+.c-image.visible{opacity: 1;}
