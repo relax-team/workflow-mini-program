@@ -3,17 +3,21 @@ Component({
         multipleSlots: false // 在组件定义时的选项中启用多slot支持
     },
     properties: {
+        slot: {
+            type: Boolean,
+            value: false
+        },
         show: {
             type: Boolean,
             value: false
         },
         title: {
-            type: Boolean,
-            value: false
+            type: String,
+            value: '提示'
         },
-        subTitle: {
-            type: Boolean,
-            value: false
+        content: {
+            type: String,
+            value: 'modal内容'
         }
     },
     data: {},
@@ -31,7 +35,6 @@ Component({
             this.setData({
                 show: true
             });
-            console.log(1111)
         },
         // 关闭弹窗
         hide() {
@@ -51,7 +54,7 @@ Component({
         * 点击确定
         * */
         confirm(){
-
+            console.log('tap confirm')
         }
 
     }

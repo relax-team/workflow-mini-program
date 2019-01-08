@@ -51,7 +51,6 @@ Page({
     * 显示modal
     * */
     modalShow() {
-        console.log(222)
         this.selectComponent('#modal').show();
     },
 });
