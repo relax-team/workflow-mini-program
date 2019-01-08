@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "Demo"
+  "navigationBarTitleText": "Demo",
+    "usingComponents": {
+        "component-slide-menu": "../../components/slide-menu/index"
+    }
 }
