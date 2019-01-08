@@ -1,10 +1,6 @@
-<view class="modal {{ show ? 'modal_show' : '' }}">
-
-    <!--遮罩-->
-    <view class="modal__mask" catchtap="hide"/>
-
+<view class="modal {{ show ? 'modal_show' : '' }}" catchtap="hide">
     <!--container-->
-    <view class="modal__container">
+    <view class="modal__container" catchtap='doNothing'>
 
         <block wx:if="{{slot}}">
             <slot></slot>

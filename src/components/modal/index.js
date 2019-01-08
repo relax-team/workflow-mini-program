@@ -55,7 +55,12 @@ Component({
         * */
         confirm(){
             console.log('tap confirm')
+        },
+        /*
+        * doNothing
+        * */
+        doNothing(){
+            return false;
         }
-
     }
 });
