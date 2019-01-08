@@ -1,0 +1,24 @@
+<view class="modal {{ show ? 'modal_show' : '' }}">
+
+    <!--遮罩-->
+    <view class="modal__mask" catchtap="hide"/>
+
+    <!--container-->
+    <view class="modal__container">
+
+        <block wx:if="{{slot}}">
+            <slot></slot>
+        </block>
+        <block wx:else>
+            <view wx:if="{{title}}" class="title">{{title || '提示'}}</view>
+            <view wx:if="{{subTitle}}" class="subTitle">{{subTitle || 'modal内容'}}</view>
+        </block>
+
+        <!--footer-->
+        <view class="modal__ft">
+            <button class="modal__btn cancel" catchtap="cancel">取消</button>
+            <button class="modal__btn confirm" catchtap="confirm">确定</button>
+        </view>
+    </view>
+</view>
+

@@ -14,9 +14,6 @@ Page({
                 id: 456,
                 title: '测试侧滑菜单组件456'
             }]
-        },
-        dialog: {
-            show: false
         }
     },
     onLoad() {
@@ -48,5 +45,13 @@ Page({
     * */
     dialogConfirm() {
         this.selectComponent('#dialog').hide();
-    }
+    },
+
+    /*
+    * 显示modal
+    * */
+    modalShow() {
+        console.log(222)
+        this.selectComponent('#modal').show();
+    },
 });

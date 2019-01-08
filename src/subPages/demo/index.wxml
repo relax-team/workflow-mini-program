@@ -17,11 +17,18 @@
         <view class="item-title">dialog</view>
         <view class="item-content">
             <button class="u-btn btn-dialog" bindtap="dialogShow">点击显示</button>
-            <component-dialog id="dialog" show="{{dialog.show}}">
+            <component-dialog id="dialog">
                 <view class="title">这是dialog标题</view>
                 <view class="content">这是dialog内容</view>
                 <view class="btn-confirm" catchtap="dialogConfirm">确定</view>
             </component-dialog>
+        </view>
+    </view>
+    <view class="item item-modal">
+        <view class="item-title">modal</view>
+        <view class="item-content">
+            <button class="u-btn btn-modal" bindtap="modalShow">点击显示</button>
+            <component-modal id="modal"></component-modal>
         </view>
     </view>
     <view class="item item-image">
