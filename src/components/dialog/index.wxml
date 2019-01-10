@@ -6,7 +6,7 @@
     <!--container-->
     <view class="dialog__container">
         <!--右上角关闭按钮-->
-        <view class="close" catchtap="hide"></view>
+        <image class="close" catchtap="hide" src="icons/icon_close.png"></image>
         <slot></slot>
     </view>
 </view>
