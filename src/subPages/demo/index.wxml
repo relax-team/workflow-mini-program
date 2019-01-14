@@ -35,7 +35,8 @@
         <view class="item-title">item-image</view>
         <view class="item-content">
             <view class="image-wrap">
-                <component-image src="https://img.alicdn.com/tps/TB1R8ihNpXXXXcWXFXXXXXXXXXX-1074-650.png" mode="widthFix"></component-image>
+                <component-image src="//img12.360buyimg.com/n1/s450x450_jfs/t1/7211/16/8954/485449/5c1088ecE9884e066/542088e742e6169c.jpg" mode="widthFix"></component-image>
+                <component-marquee id="marquee" bind:tap="onMarqueeTap"></component-marquee>
             </view>
         </view>
     </view>
