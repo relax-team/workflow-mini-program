@@ -36,7 +36,11 @@
 │   ├── styles                  // 全局公用组件
 │   ├── libs                    // 库文件
 │   ├── components              // 组件
+│   │   ├── dialog   
+│   │   ├── quantity   
 │   ├── pages                   // 业务页面
+│   │   ├── ...                
+│   ├── subPages                // 分包页面
 │   │   ├── ...                
 │   ├── utils                   // 通用方法
 │   ├── app.js                  //全局入口
