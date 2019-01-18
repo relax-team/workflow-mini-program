@@ -23,6 +23,8 @@ const checkAuthorize = async (scope) => {
 
     if (!authSetting[scope]) {
         const page = getCurrPage();
+
+        //这个地方不能使用wx.showModal，需要自定义，否则无法触发wx.openSetting
         const modal = page.selectComponent('#modal');
         if (modal) {
             modal.display({
