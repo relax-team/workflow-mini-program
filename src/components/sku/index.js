@@ -3,18 +3,45 @@ import cfg from '../../config/index';
 const app = getApp();
 Component({
     properties: {
-        // 这里定义了innerText属性，属性值可以在组件使用时指定
-        innerText: {
-            type: String,
-            value: 'default value',
+        info: {
+            type: Object,
+            default: {}
+        },
+        quantity: {
+            type: Number,
+            value: 1,
         }
     },
     data: {
-        // 这里是一些组件内部数据
-        someData: {}
+        checkedInfo: {}
+    },
+    ready() {
+        this.triggerEvent('ready');
     },
     methods: {
-        // 这里是一个自定义方法
-        customMethod() {}
+        /*
+        * 选中sku
+        * */
+        skuClick(e) {
+
+        },
+        /*
+        * 修改数量
+        * */
+        onQuantityChange(e) {
+            this.data.quantity = e.detail;
+        },
+        /*
+        * 确认sku
+        * */
+        sku_confirm() {
+            this.triggerEvent('confirm');
+        },
+        /*
+        * 获取当前选择的详细信息
+        * */
+        getCheckedInfo(checkedValue) {
+
+        }
     }
 })

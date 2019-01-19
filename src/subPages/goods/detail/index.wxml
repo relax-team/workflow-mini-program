@@ -18,3 +18,16 @@
         <view class="o-price"><text>¥</text><text class="val">1351</text><text>.00</text></view>
     </view>
 </view>
+
+<view class="footer">
+    <view class="btn-icon">
+        <view class="btn btn-cart">
+            <image class="icon" src="./icons/icon-cart.png"></image>
+            <view>购物车</view>
+        </view>
+    </view>
+    <view class="btn-option">
+        <view class="btn btn-cart">加入购物车</view>
+        <view class="btn btn-buy">立即购买</view>
+    </view>
+</view>

@@ -10,3 +10,12 @@
 .goods-info .price .c-price{color: #ef3325;margin-right: 20rpx;}
 .goods-info .price .c-price .val{font-size: 32rpx;}
 .goods-info .price .o-price{color: #ccc;}
+
+.footer{position: fixed;bottom: 0;width: 100%;z-index: 1;display: flex;text-align: center;}
+.footer .btn-icon{flex: 1;display: flex;font-size: 24rpx;border-top: 1px solid #f2f2f2;}
+.footer .btn-icon .icon{width: 40rpx;height: 40rpx;}
+.footer .btn-icon .btn{flex: 1;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.footer .btn-option{flex: 3;display: flex;}
+.footer .btn-option .btn {flex: 1;padding: 30rpx 10rpx;font-size: 30rpx;color: #fff;}
+.footer .btn-option .btn-cart{background: #333;}
+.footer .btn-option .btn-buy{background: #f63147;}

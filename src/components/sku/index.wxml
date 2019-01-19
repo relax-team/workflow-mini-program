@@ -1,3 +1,34 @@
-<view class="sku-container">
-    sku
+<view class="outer">
+    <view class="sku_container">
+        <!--header-->
+        <view class="sku_hd">
+            <image class="sku-pic" src="{{info.pic}}"></image>
+            <view class="sku-desc">
+                <view class="title">{{info.title}}</view>
+                <view class="price">￥{{checkedInfo.price || info.price}}</view>
+            </view>
+        </view>
+
+        <!--body-->
+        <view class="sku_bd">
+            <view class="sku-group" wx:if="{{info.spec[0]}}">
+                <view class="group" wx:for="{{info.spec}}" wx:for-item="group" wx:for-index="groupIndex" wx:key="{{group.name}}">
+                    <view class="title">{{group.name}}</view>
+                    <view class="list">
+                        <view class="item {{checkedIndex[groupIndex] === index ? 'active' : ''}}" wx:for="{{group.detail}}" wx:key="{{item}}" data-value="{{item}}" data-group-index="{{groupIndex}}" data-index="{{index}}" catchtap="skuClick">{{item}}</view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="sku-quantity">
+                <view class="title">购买数量</view>
+                <component-quantity bind:change="onQuantityChange"></component-quantity>
+            </view>
+        </view>
+    </view>
+    <!--footer-->
+    <view class="sku_ft">
+        <view class="btn-confirm" catchtap="sku_confirm">{{info.btnText || '确定'}}</view>
+    </view>
 </view>
+
