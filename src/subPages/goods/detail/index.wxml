@@ -27,7 +27,12 @@
         </view>
     </view>
     <view class="btn-option">
-        <view class="btn btn-cart">加入购物车</view>
-        <view class="btn btn-buy">立即购买</view>
+        <view class="btn btn-cart" catchtap="addCart">加入购物车</view>
+        <view class="btn btn-buy" catchtap="buyGoods">立即购买</view>
     </view>
 </view>
+
+<!-- sku -->
+<component-dialog id="dialog_sku">
+    <component-sku bind:confirm="sku_confirm" bind:ready="sku_init" info="{{}}"></component-sku>
+</component-dialog>

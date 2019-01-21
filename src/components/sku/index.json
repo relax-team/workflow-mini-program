@@ -1,3 +1,6 @@
 {
-    "component": true
+    "component": true,
+    "usingComponents": {
+        "component-quantity": "../quantity/index"
+    }
 }

@@ -58,8 +58,6 @@
     "usingComponents": {
         "component-modal": "./components/modal/index",
         "component-dialog": "./components/dialog/index",
-        "component-sku": "./components/sku/index",
-        "component-quantity": "./components/quantity/index",
         "component-image": "./components/image/index"
     }
 }

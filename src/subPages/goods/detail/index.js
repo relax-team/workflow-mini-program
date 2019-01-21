@@ -11,5 +11,25 @@ Page({
     },
     onLoad() {
 
-    }
+    },
+
+    // 添加购物车
+    addCart() {
+        this.selectComponent('#dialog_sku').show();
+        this.data.skuTarget = 1;
+    },
+
+    // 立即购买
+    async buyGoods() {
+        this.selectComponent('#dialog_sku').show();
+        this.data.skuTarget = 2;
+    },/*
+    * 点击sku确认
+    * */
+    async sku_confirm(e) {
+        const sku_detail = e.detail;
+        console.log('sku_confirm', sku_detail);
+
+        this.selectComponent('#dialog_sku').hide();
+    },
 });
