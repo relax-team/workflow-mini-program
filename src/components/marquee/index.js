@@ -49,7 +49,7 @@ Component({
         * */
         setMarqueeItem() {
             const marqueeItem = {
-                avatar: `./icons/${this.range(1, 23)}.png`,
+                avatar: `./icons/${this.range(1, 22)}.png`,
                 name: `${this.random(this.data.firstName)[0]}**`,
                 time: this.range(4, 59),
                 city: this.random(this.data.city)[0]
