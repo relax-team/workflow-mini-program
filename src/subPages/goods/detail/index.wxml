@@ -20,12 +20,12 @@
 </view>
 
 <view class="footer">
-    <view class="btn-icon">
+    <navigator open-type="switchTab" url="/pages/cart/index" hover-class="none" class="btn-icon">
         <view class="btn btn-cart">
             <image class="icon" src="./icons/icon-cart.png"></image>
             <view>购物车</view>
         </view>
-    </view>
+    </navigator>
     <view class="btn-option">
         <view class="btn btn-cart" catchtap="addCart">加入购物车</view>
         <view class="btn btn-buy" catchtap="buyGoods">立即购买</view>

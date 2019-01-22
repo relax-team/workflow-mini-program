@@ -1,5 +1,5 @@
 /* btn */
-.u-btn{ display: inline-flex;align-items: center;justify-content: center; border:2rpx solid #EEEEEE; background-color:#FFF; color:#333; text-align:center; padding:10rpx 40rpx; vertical-align:middle; border-radius:50rpx;font-size:32rpx;margin: 0;white-space: nowrap;line-height: 1.44}
+.u-btn{ display: inline-flex;align-items: center;justify-content: center; border:2rpx solid #EEEEEE; background-color:#FFF; color:#333; text-align:center; padding:10rpx 40rpx; vertical-align:middle; border-radius:10rpx;font-size:32rpx;margin: 0;white-space: nowrap;line-height: 1.44}
 .u-btn:after{content: none}
 .u-btn.checked{ border:2rpx solid #BA0000; color: #fff;background: #BA0000}
 /* 按钮点击状态 */
@@ -16,9 +16,9 @@
 .u-switch:before,.u-switch:after{position:absolute;top:1px;left:1px;height:22px;border-radius:15px;content:"";-webkit-transition:.3s;transition:.3s;}
 .u-switch:before{width:44px;background-color:#fdfdfd}
 .u-switch:after{width:22px;background-color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
-.u-switch:checked{border-color:#ff4d61;background-color:#ff4d61}
-.u-switch:checked:before{-webkit-transform:scale(0);transform:scale(0)}
-.u-switch:checked:after{-webkit-transform:translate3d(22px,0,0)}
+.u-switch.checked{border-color:#ff4d61;background-color:#ff4d61}
+.u-switch.checked:before{-webkit-transform:scale(0);transform:scale(0)}
+.u-switch.checked:after{-webkit-transform:translate3d(22px,0,0)}
 .u-switch.disabled{ opacity: .5;}
 
 /*tab*/
@@ -30,11 +30,11 @@
 /* checkbox */
 .u-radio,
 .u-checkbox{ display:inline-block; vertical-align:middle; width:16px; height:16px; border:1px solid #999; background-color:#FFF; border-radius:50%; position:relative; -webkit-transition:.2s; transition:.2s;}
-.u-checkbox:checked{ background-color:#ff4d61; border-color:#ff4d61;}
-.u-checkbox:checked:before{ content:""; position:absolute; left:3px; top:3px; width:8px; height:4px; border-bottom:1px solid #FFF; border-left:1px solid #FFF; -webkit-transform:rotate(-45deg); transform:rotate(-45deg);}
+.u-checkbox.checked{ background-color:#ff4d61; border-color:#ff4d61;}
+.u-checkbox.checked:before{ content:""; position:absolute; left:3px; top:3px; width:8px; height:4px; border-bottom:1px solid #FFF; border-left:1px solid #FFF; -webkit-transform:rotate(-45deg); transform:rotate(-45deg);}
 .u-checkbox:after{position:absolute;top:-8px;left:-8px;display:block;width:32px;height:32px;background-color:transparent;content:''}
-.u-radio:checked{ border-color:#ff4d61;}
-.u-radio:checked:before{ content:""; position:absolute; left:3px; top:3px; width:8px; height:8px; overflow:hidden; border-radius:50%; background-color:#ff4d61;}
+.u-radio.checked{ border-color:#ff4d61;}
+.u-radio.checked:before{ content:""; position:absolute; left:3px; top:3px; width:8px; height:8px; overflow:hidden; border-radius:50%; background-color:#ff4d61;}
 .u-radio.disabled,
 .u-checkbox.disabled{ opacity: .5;}
 
@@ -51,8 +51,3 @@
 .u-triangle.right{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:6px solid #333;}
 .u-triangle.topright{width:0;height:0;border-top:5px solid #333;border-left:5px solid transparent;}
 
-/*quantity*/
-.u-quantity{ display: flex; align-items: center; background-color: #fff; text-align: center; line-height: 50rpx; color: #000; border: 2rpx solid #DCDCDC;overflow: hidden;}
-.u-quantity .btn{ width: 50rpx; height: 50rpx; font-size: 34rpx;}
-.u-quantity .number{ height: 50rpx; width: 80rpx; border-left: 2rpx solid #DCDCDC; border-right: 2rpx solid #DCDCDC; font-size: 24rpx; color: #111;}
-.u-quantity .btn.disabled{ color: #999;}

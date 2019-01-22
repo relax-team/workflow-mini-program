@@ -23,11 +23,3 @@ navigator {box-sizing:border-box;color: inherit;font: inherit;height:initial;}
 .wx-radio-input{ width:16px !important; height:16px !important; }
 .wx-checkbox-input{ width:16px !important; height:16px !important; border-radius: 50% !important;}
 
-/*notice*/
-.notice {display: flex;justify-content: center;align-items: center;height: 100%;background-color:#ffffff; }
-.notice .inner{padding:0 20rpx;text-align:center;}
-.notice .icon{width: 250px; height: 250px;margin: -200rpx auto 0; }
-.notice .text{color: #333;font-size:32rpx;padding: 12rpx 0 6rpx 0;}
-.notice .sub-text{color: #999;font-size:28rpx;}
-.notice .u-btn{margin: 20rpx 20rpx 0 20rpx;border-radius: 60rpx;}
-
