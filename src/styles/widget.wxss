@@ -1,7 +1,7 @@
 /* btn */
 .u-btn{ display: inline-flex;align-items: center;justify-content: center; border:2rpx solid #EEEEEE; background-color:#FFF; color:#333; text-align:center; padding:10rpx 40rpx; vertical-align:middle; border-radius:10rpx;font-size:32rpx;margin: 0;white-space: nowrap;line-height: 1.44}
 .u-btn:after{content: none}
-.u-btn.checked{ border:2rpx solid #BA0000; color: #fff;background: #BA0000}
+.u-btn.checked{ border:2rpx solid #ff4d61; color: #fff;background: #ff4d61}
 /* 按钮点击状态 */
 .u-btn.checked:active{ opacity: .8;}
 /* 按钮禁止状态 */
@@ -24,8 +24,8 @@
 /*tab*/
 .u-tabs{ display: flex;align-items: center; background: #FFF;font-size: 28rpx;}
 .u-tabs > view{ flex:1; text-overflow:ellipsis; white-space:nowrap; overflow: hidden; text-align: center; height: 80rpx; line-height: 80rpx;}
-.u-tabs > view.active{ color: #BA0000; position: relative;}
-.u-tabs > view.active text{padding-bottom: 16rpx; border-bottom: 6rpx solid #BA0000; }
+.u-tabs > view.active{ color: #ff4d61; position: relative;}
+.u-tabs > view.active text{padding-bottom: 16rpx; border-bottom: 6rpx solid #ff4d61; }
 
 /* checkbox */
 .u-radio,
