@@ -1,28 +1,32 @@
 {
-  "name": "wxmp-mall",
-  "version": "1.0.0",
-  "description": "e-mall system in wechat mini program",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:relax-team/wxmp-mall.git"
-  },
-  "keywords": [
-    "wechat mini program"
-  ],
-  "author": "relax-team",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-if": "^2.0.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sftp": "^0.1.5",
-    "gulp-strip-debug": "^1.1.0",
-    "gulp-util": "^3.0.8",
-    "run-sequence": "^2.2.1"
-  }
+	"name": "wxmp-mall",
+	"version": "1.0.0",
+	"description": "e-mall system in wechat mini program",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint src --ext .js"
+	},
+	"pre-commit": [],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:relax-team/wxmp-mall.git"
+	},
+	"keywords": [
+		"wechat mini program"
+	],
+	"author": "relax-team",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^5.12.1",
+		"gulp": "^3.9.1",
+		"gulp-clean": "^0.3.2",
+		"gulp-if": "^2.0.2",
+		"gulp-replace": "^0.5.4",
+		"gulp-sftp": "^0.1.5",
+		"gulp-strip-debug": "^1.1.0",
+		"gulp-util": "^3.0.8",
+		"pre-commit": "^1.2.2",
+		"run-sequence": "^2.2.1"
+	}
 }
