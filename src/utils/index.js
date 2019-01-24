@@ -191,7 +191,7 @@ const request = async (opt) => {
             //设置loading
             showLoading(opt);
 
-            //是否需要用户登录信息
+            //是否需要用户登录 信息
             if (opt.login) {
                 const {openid} = await login();
                 Object.assign(option.data, {openid: openid || 'Abcdefghigklmnopqrstuvwxyz'});

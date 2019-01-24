@@ -22,15 +22,14 @@
     "license": "ISC",
     "devDependencies": {
         "babel-eslint": "^10.0.1",
+        "del": "^3.0.0",
         "eslint": "^5.12.1",
-        "gulp": "^3.9.1",
-        "gulp-clean": "^0.3.2",
+        "gulp": "^4.0.0",
         "gulp-if": "^2.0.2",
+        "gulp-less": "^4.0.1",
         "gulp-replace": "^0.5.4",
         "gulp-sftp": "^0.1.5",
-        "gulp-strip-debug": "^1.1.0",
         "gulp-util": "^3.0.8",
-        "pre-commit": "^1.2.2",
-        "run-sequence": "^2.2.1"
+        "pre-commit": "^1.2.2"
     }
 }
