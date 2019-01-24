@@ -1,7 +1,7 @@
 'use strict';
 
 // 引入gulp组件
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     replace = require('gulp-replace'),
     clean = require('gulp-clean'),
     gulpif = require('gulp-if'),
@@ -9,9 +9,9 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     sftp = require('gulp-sftp');      // 自动部署静态资源
 
-var pkg = require('./package.json');
-var version = 'v' + pkg.version;
-var cfg = {
+const pkg = require('./package.json');
+const version = 'v' + pkg.version;
+const cfg = {
     entry: './src',
     output: './dist'
 };

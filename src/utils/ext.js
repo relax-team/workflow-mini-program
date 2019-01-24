@@ -29,28 +29,28 @@ const fnMathExt = function () {
         var max = Math.max(t1, t2);
 
         switch (op) {
-        case 'add':
-            if (t1 > t2) {
-                result = n1 + n2 * (t1 / t2);
-            } else {
-                result = n2 + n1 * (t2 / t1);
-            }
-            result = result / max;
-            break;
-        case 'subtract':
-            if (t1 > t2) {
-                result = n1 - n2 * (t1 / t2);
-            } else {
-                result = n1 * (t2 / t1) - n2;
-            }
-            result = result / max;
-            break;
-        case 'multiply':
-            result = (n1 * n2) / (t1 * t2);
-            return result;
-        case 'divide':
-            result = (n1 / n2) * (t2 / t1);
-            return result;
+            case 'add':
+                if (t1 > t2) {
+                    result = n1 + n2 * (t1 / t2);
+                } else {
+                    result = n2 + n1 * (t2 / t1);
+                }
+                result = result / max;
+                break;
+            case 'subtract':
+                if (t1 > t2) {
+                    result = n1 - n2 * (t1 / t2);
+                } else {
+                    result = n1 * (t2 / t1) - n2;
+                }
+                result = result / max;
+                break;
+            case 'multiply':
+                result = (n1 * n2) / (t1 * t2);
+                return result;
+            case 'divide':
+                result = (n1 / n2) * (t2 / t1);
+                return result;
 
         }
         return result;
