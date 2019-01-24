@@ -3,7 +3,7 @@ const promisify = (api) => {
         return new Promise((resolve, reject) => {
             api(Object.assign({}, options, {
                 success: resolve,
-                fail (res){
+                fail(res) {
                     console.error('request error ', res);
                     reject(res);
                 }
@@ -15,9 +15,9 @@ const promisify = (api) => {
 const complete = (api) => {
     return (options, ...params) => {
         return new Promise((resolve, reject) => {
-            api(Object.assign({}, options, { complete: resolve }), ...params);
+            api(Object.assign({}, options, {complete: resolve}), ...params);
         });
     };
 };
 
-export {promisify, complete}
+export {promisify, complete};

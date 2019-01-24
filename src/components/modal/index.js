@@ -54,7 +54,7 @@ Component({
         * 点击确定
         * */
         confirm(){
-            console.log('tap confirm')
+            console.log('tap confirm');
         },
         /*
         * doNothing

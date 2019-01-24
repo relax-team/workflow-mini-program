@@ -1,5 +1,5 @@
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
     data: {
@@ -56,29 +56,29 @@ Page({
      * 显示删除按钮
      */
     showDeleteButton: function (e) {
-        let productIndex = e.currentTarget.dataset.productindex
-        this.setXmove(productIndex, -65)
+        let productIndex = e.currentTarget.dataset.productindex;
+        this.setXmove(productIndex, -65);
     },
 
     /**
      * 隐藏删除按钮
      */
     hideDeleteButton: function (e) {
-        let productIndex = e.currentTarget.dataset.productindex
+        let productIndex = e.currentTarget.dataset.productindex;
 
-        this.setXmove(productIndex, 0)
+        this.setXmove(productIndex, 0);
     },
 
     /**
      * 设置movable-view位移
      */
     setXmove: function (productIndex, xmove) {
-        let productList = this.data.productList
-        productList[productIndex].xmove = xmove
+        let productList = this.data.productList;
+        productList[productIndex].xmove = xmove;
 
         this.setData({
             productList: productList
-        })
+        });
     },
 
     /**
@@ -87,12 +87,12 @@ Page({
     handleMovableChange: function (e) {
         if (e.detail.source === 'friction') {
             if (e.detail.x < -30) {
-                this.showDeleteButton(e)
+                this.showDeleteButton(e);
             } else {
-                this.hideDeleteButton(e)
+                this.hideDeleteButton(e);
             }
         } else if (e.detail.source === 'out-of-bounds' && e.detail.x === 0) {
-            this.hideDeleteButton(e)
+            this.hideDeleteButton(e);
         }
     },
 
@@ -100,7 +100,7 @@ Page({
      * 处理touchstart事件
      */
     handleTouchStart(e) {
-        this.startX = e.touches[0].pageX
+        this.startX = e.touches[0].pageX;
     },
 
     /**
@@ -108,11 +108,11 @@ Page({
      */
     handleTouchEnd(e) {
         if(e.changedTouches[0].pageX < this.startX && e.changedTouches[0].pageX - this.startX <= -30) {
-            this.showDeleteButton(e)
+            this.showDeleteButton(e);
         } else if(e.changedTouches[0].pageX > this.startX && e.changedTouches[0].pageX - this.startX < 30) {
-            this.showDeleteButton(e)
+            this.showDeleteButton(e);
         } else {
-            this.hideDeleteButton(e)
+            this.hideDeleteButton(e);
         }
     },
 
@@ -120,16 +120,16 @@ Page({
      * 删除产品
      */
     handleDeleteProduct: function ({ currentTarget: { dataset: { id } } }) {
-        let productList = this.data.productList
-        let productIndex = productList.findIndex(item => item.id = id)
+        let productList = this.data.productList;
+        let productIndex = productList.findIndex(item => item.id = id);
 
-        productList.splice(productIndex, 1)
+        productList.splice(productIndex, 1);
 
         this.setData({
             productList
-        })
+        });
         if (productList[productIndex]) {
-            this.setXmove(productIndex, 0)
+            this.setXmove(productIndex, 0);
         }
     },
 
@@ -137,13 +137,13 @@ Page({
      * slide-delete 删除产品
      */
     handleSlideDelete({ detail: { id } }) {
-        let slideProductList = this.data.slideProductList
-        let productIndex = slideProductList.findIndex(item => item.id = id)
+        let slideProductList = this.data.slideProductList;
+        let productIndex = slideProductList.findIndex(item => item.id = id);
 
-        slideProductList.splice(productIndex, 1)
+        slideProductList.splice(productIndex, 1);
 
         this.setData({
             slideProductList
-        })
+        });
     }
-})
+});

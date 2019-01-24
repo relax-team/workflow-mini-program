@@ -29,28 +29,28 @@ const fnMathExt = function () {
         var max = Math.max(t1, t2);
 
         switch (op) {
-            case 'add':
-                if (t1 > t2) {
-                    result = n1 + n2 * (t1 / t2);
-                } else {
-                    result = n2 + n1 * (t2 / t1);
-                }
-                result = result / max;
-                break;
-            case 'subtract':
-                if (t1 > t2) {
-                    result = n1 - n2 * (t1 / t2);
-                } else {
-                    result = n1 * (t2 / t1) - n2;
-                }
-                result = result / max;
-                break;
-            case 'multiply':
-                result = (n1 * n2) / (t1 * t2);
-                return result;
-            case 'divide':
-                result = (n1 / n2) * (t2 / t1);
-                return result;
+        case 'add':
+            if (t1 > t2) {
+                result = n1 + n2 * (t1 / t2);
+            } else {
+                result = n2 + n1 * (t2 / t1);
+            }
+            result = result / max;
+            break;
+        case 'subtract':
+            if (t1 > t2) {
+                result = n1 - n2 * (t1 / t2);
+            } else {
+                result = n1 * (t2 / t1) - n2;
+            }
+            result = result / max;
+            break;
+        case 'multiply':
+            result = (n1 * n2) / (t1 * t2);
+            return result;
+        case 'divide':
+            result = (n1 / n2) * (t2 / t1);
+            return result;
 
         }
         return result;
@@ -94,8 +94,8 @@ Object.assign(JSON, {
      */
     param: function (n) {
         var e = [];
-        for (var o in n)e.push(encodeURIComponent(o) + "=" + encodeURIComponent(null == n[o] ? "" : n[o]));
-        return e.join("&").replace(/%20/g, "+")
+        for (var o in n) e.push(encodeURIComponent(o) + '=' + encodeURIComponent(null == n[o] ? '' : n[o]));
+        return e.join('&').replace(/%20/g, '+');
     }
 });
 
@@ -121,24 +121,24 @@ Array.prototype.unique = function () {
 
 //时间对象的格式化 Date.format("yyyy-MM-dd hh:mm:ss");
 Date.prototype.format = function (b) {
-  let c = {
-    "M+": this.getMonth() + 1,
-    "d+": this.getDate(),
-    "h+": this.getHours(),
-    "m+": this.getMinutes(),
-    "s+": this.getSeconds(),
-    "q+": Math.floor((this.getMonth() + 3) / 3),
-    S: this.getMilliseconds()
-  };
-  if (/(y+)/.test(b)) {
-    b = b.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-  }
-  for (let a in c) {
-    if (new RegExp("(" + a + ")").test(b)) {
-      b = b.replace(RegExp.$1, RegExp.$1.length == 1 ? c[a] : ("00" + c[a]).substr(("" + c[a]).length));
+    let c = {
+        'M+': this.getMonth() + 1,
+        'd+': this.getDate(),
+        'h+': this.getHours(),
+        'm+': this.getMinutes(),
+        's+': this.getSeconds(),
+        'q+': Math.floor((this.getMonth() + 3) / 3),
+        S: this.getMilliseconds()
+    };
+    if (/(y+)/.test(b)) {
+        b = b.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
     }
-  }
-  return b;
+    for (let a in c) {
+        if (new RegExp('(' + a + ')').test(b)) {
+            b = b.replace(RegExp.$1, RegExp.$1.length == 1 ? c[a] : ('00' + c[a]).substr(('' + c[a]).length));
+        }
+    }
+    return b;
 };
 
 /**防止页面快速点击可以重复触发调用方法 app.preventMoreTap()
@@ -149,12 +149,12 @@ Date.prototype.format = function (b) {
  *      }
  *   })
  */
-const multiTap =  function (e) {
+const multiTap = function (e) {
     let lastTime = this.globalLastTapTime || 0;
     let result = e.timeStamp - lastTime < 500;
     this.globalLastTapTime = e.timeStamp;
     return result;
 };
 
-export default {multiTap}
+export default {multiTap};
 

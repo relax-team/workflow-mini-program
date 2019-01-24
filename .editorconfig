@@ -6,10 +6,8 @@ root = true
 # 字符编码
 charset = utf-8
 # 缩进格式
-indent_style = tab
-# 使用2个空格缩进
+indent_style = space
 indent_size = 4
-tab_width = 4
 # 换行格式
 end_of_line = lf
 # 在代码最后添加一行空行

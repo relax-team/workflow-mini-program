@@ -53,6 +53,6 @@ Page({
             wx.createSelectorQuery().select(selector).boundingClientRect(function (rect) {
                 resolve(rect);
             }).exec();
-        })
+        });
     }
 });

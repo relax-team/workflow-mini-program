@@ -5,15 +5,17 @@ module.exports = {
 		node: true
 	},
 	extends: 'eslint:recommended',
+    parser: 'babel-eslint',
 	parserOptions: {
 		ecmaVersion: 6,
 		sourceType: 'module'
 	},
 	rules: {
-		indent: ['error', 2],
+		indent: ['error', 4],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
-		'no-console': 1
+		'no-console': 'off',
+        'no-unused-vars': 'off'
 	},
 	globals: {
 		getApp: false,

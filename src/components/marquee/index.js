@@ -41,7 +41,7 @@ Component({
             });
             setTimeout(() => {
                 this.marquee(+!opacity);
-            }, delay)
+            }, delay);
 
         },
         /*
@@ -61,10 +61,10 @@ Component({
 
             this.setData({
                 marqueeItem
-            })
+            });
         },
         random(arr) {
-            return arr.sort(() => 0.5 - Math.random())
+            return arr.sort(() => 0.5 - Math.random());
         },
         range(min, max) {
             return min + Math.round(Math.random() * (max - min));

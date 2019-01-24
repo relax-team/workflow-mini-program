@@ -35,7 +35,7 @@ export default {
                         city: address.city,
                         district: address.district,
                         street: address.streetNumber.street,
-                        source: "gps"
+                        source: 'gps'
                     };
                     resolve(cfg.location.gps);
                 },
@@ -44,9 +44,9 @@ export default {
                     /* step: 3 */
                     resolve(cfg.location.defaults);
                 }
-            })
+            });
 
-        })
+        });
     },
     /*
      * 获取周边
@@ -63,7 +63,7 @@ export default {
                     reject(res);
                 }
             }, o));
-        })
+        });
     },
     /*
      * 关键字搜索
@@ -81,7 +81,7 @@ export default {
                 }
             }, o));
 
-        })
+        });
     },
     /*
      * 地址编码
@@ -99,7 +99,7 @@ export default {
                 }
             }, o));
 
-        })
+        });
     },
     /*
      * 基于js利用经纬度进行两地的距离计算
@@ -121,7 +121,7 @@ export default {
     rad(d) {
         return d * Math.PI / 180.0;
     }
-}
+};
 
 
 

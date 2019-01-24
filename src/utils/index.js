@@ -35,7 +35,7 @@ const checkAuthorize = async (scope) => {
                     let {authSetting} = await promisify(wx.openSetting)();
                     return authSetting[scope] || Promise.reject();
                 }
-            })
+            });
         } else {
             console.log('请在页面节点中增加modal组件');
             return Promise.reject();
@@ -75,7 +75,7 @@ const login = async (params) => {
         if (goUrl) {
             return wx.navigateTo({
                 url: goUrl
-            })
+            });
         }
         return userInfo;
     }
@@ -88,7 +88,7 @@ const login = async (params) => {
         if (goUrl) loginUrl += ('?go=' + goUrl);
         return wx.navigateTo({
             url: loginUrl
-        })
+        });
     }
     return Promise.reject(userInfo);
 };
@@ -116,7 +116,7 @@ const decodeUserInfo = async () => {
     //code换取session_key
     const session = await request({
         mode: 'natural',
-        url: "/wx/openid",
+        url: '/wx/openid',
         showLoading: {type: 2},
         data: {
             appid: cfg.appid,
@@ -134,7 +134,7 @@ const decodeUserInfo = async () => {
         //wx.login 接口返回报错
         wx.showModal({
             title: '提示',
-            content: `接口请求失败，请重试！#[wx.login]`
+            content: '接口请求失败，请重试！#[wx.login]'
         });
         return Promise.reject();
     }
@@ -148,7 +148,7 @@ const decodeUserInfo = async () => {
         //wx.login 接口返回报错
         wx.showModal({
             title: '提示',
-            content: `接口请求失败，请重试！#[wx.login]`
+            content: '接口请求失败，请重试！#[wx.login]'
         });
         return Promise.reject();
     }
@@ -178,25 +178,25 @@ const request = async (opt) => {
 
     const option = {
         url: opt.url,
-        method: (opt.method || "POST").toUpperCase(),
+        method: (opt.method || 'POST').toUpperCase(),
         header: opt.header || {},
         data: opt.data || {}
     };
 
     switch (opt.mode) {
-        case 'natural':
-            //自然模式，不进行任何附加处理
-            break;
-        default:
-            //设置loading
-            showLoading(opt);
+    case 'natural':
+        //自然模式，不进行任何附加处理
+        break;
+    default:
+        //设置loading
+        showLoading(opt);
 
-            //是否需要用户登录信息
-            if (opt.login) {
-                const {openid} = await login();
-                Object.assign(option.data, {openid: openid || 'Abcdefghigklmnopqrstuvwxyz'});
-            }
-            break;
+        //是否需要用户登录信息
+        if (opt.login) {
+            const {openid} = await login();
+            Object.assign(option.data, {openid: openid || 'Abcdefghigklmnopqrstuvwxyz'});
+        }
+        break;
     }
 
     //wx.request
@@ -231,27 +231,26 @@ const handleResponse = async function (opt, res) {
         errInfo = {code, message};
         //错误类型处理
         switch (opt.errType) {
-            case 'page':
-                //页面数据增加error字段
-                const page = getCurrPage();
-                page.setData({
-                    error: errInfo
-                });
-                break;
-            case 'modal':
+        case 'page':
+            //页面数据增加error字段
+            getCurrPage().setData({
+                error: errInfo
+            });
+            break;
+        case 'modal':
 
-                break;
-            case 'none':
+            break;
+        case 'none':
 
-                break;
-            default:
-                //默认为toast
-                wx.showToast({
-                    title: errInfo.message,
-                    icon: 'none',
-                    duration: 2000
-                });
-                break;
+            break;
+        default:
+            //默认为toast
+            wx.showToast({
+                title: errInfo.message,
+                icon: 'none',
+                duration: 2000
+            });
+            break;
         }
         return Promise.reject(errInfo);
     } else {
@@ -279,30 +278,29 @@ function showLoading(opt) {
     let _loading = opt.showLoading;
     if (!_loading) return false;
     switch (_loading.type) {
-        case 1:
-            //微信系统的loading
-            opt.timer && clearTimeout(opt.timer);
-            opt.timer = setTimeout(() => {
-                wx.showLoading({
-                    mask: true,
-                    title: _loading.title || '加载中'
-                });
-            }, 180);
-            break;
-        case 2:
-            //顶部导航栏loading
-            wx.showNavigationBarLoading();
-            break;
-        default:
-            //自定义loading
-            const page = getCurrPage();
-            opt.timer && clearTimeout(opt.timer);
-            opt.timer = setTimeout(() => {
-                page.setData({
-                    '__loading__.show': true
-                });
-            }, 180);
-            break;
+    case 1:
+        //微信系统的loading
+        opt.timer && clearTimeout(opt.timer);
+        opt.timer = setTimeout(() => {
+            wx.showLoading({
+                mask: true,
+                title: _loading.title || '加载中'
+            });
+        }, 180);
+        break;
+    case 2:
+        //顶部导航栏loading
+        wx.showNavigationBarLoading();
+        break;
+    default:
+        //自定义loading
+        opt.timer && clearTimeout(opt.timer);
+        opt.timer = setTimeout(() => {
+            getCurrPage().setData({
+                '__loading__.show': true
+            });
+        }, 180);
+        break;
     }
     return true;
 }
@@ -314,23 +312,22 @@ function hideLoading(opt) {
     let _loading = opt.showLoading;
     if (!_loading) return false;
     switch (_loading.type) {
-        case 1:
-            //微信系统的loading
-            opt.timer && clearTimeout(opt.timer);
-            wx.hideLoading();
-            break;
-        case 2:
-            //顶部导航栏loading
-            wx.hideNavigationBarLoading();
-            break;
-        default:
-            //自定义loading
-            const page = getCurrPage();
-            opt.timer && clearTimeout(opt.timer);
-            page.setData({
-                '__loading__.show': false
-            });
-            break;
+    case 1:
+        //微信系统的loading
+        opt.timer && clearTimeout(opt.timer);
+        wx.hideLoading();
+        break;
+    case 2:
+        //顶部导航栏loading
+        wx.hideNavigationBarLoading();
+        break;
+    default:
+        //自定义loading
+        opt.timer && clearTimeout(opt.timer);
+        getCurrPage().setData({
+            '__loading__.show': false
+        });
+        break;
     }
     return true;
 }
@@ -368,7 +365,7 @@ const sendUniformMessage = async function (data) {
     await request({
         mode: 'natural',
         showLoading: {type: 2},
-        url: "/wx/sendUniformMsg",
+        url: '/wx/sendUniformMsg',
         data: {
             appid: cfg.appid,
             data: JSON.stringify(data)

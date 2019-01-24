@@ -11,16 +11,16 @@ Page({
     handlePhoneCall() {
         wx.makePhoneCall({
             phoneNumber: cfg.kf_phone
-        })
+        });
     },
 
     navigateTo(e) {
         app.login({
             go: e.currentTarget.dataset.url
-        })
+        });
     },
 
     handleAddress(){
-        wx.chooseAddress()
+        wx.chooseAddress();
     }
 });

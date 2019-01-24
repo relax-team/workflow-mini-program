@@ -23,7 +23,8 @@ Page({
     async buyGoods() {
         this.selectComponent('#dialog_sku').show();
         this.data.skuTarget = 2;
-    },/*
+    },
+    /*
     * 点击sku确认
     * */
     async sku_confirm(e) {
