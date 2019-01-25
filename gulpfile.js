@@ -28,7 +28,7 @@ try {
 let paths = {
     src: {
         baseDir: 'src',
-        baseFiles: ['src/**/*', '!src/assets/**/*', '!src/**/*.wxml', '!src/**/*.less'],
+        baseFiles: ['src/**/*', '!src/assets/**', '!src/**/*.wxml', '!src/**/*.less'],
         wxmlFiles: ['src/**/*.wxml'],
         lessFiles: ['src/**/*.less'],
         assetsDir: 'src/assets',        //要上传到ftp或cdn的静态资源文件
@@ -48,8 +48,15 @@ function log() {
 }
 
 // clean 任务, dist 目录
-function cleanDist() {
+function removeFiles() {
     return del(paths.dist.baseDir);
+}
+
+// 复制文件
+function copyFiles(file) {
+    let files = typeof file === 'string' ? file : paths.src.baseFiles;
+    return gulp.src(files)
+        .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 // 编译.less
@@ -68,13 +75,10 @@ function copyWXML(file) {
         .pipe(gulp.dest(paths.dist.baseDir));
 }
 
-// 复制文件
-function copyFiles(file) {
-    let files = typeof file === 'string' ? file : paths.src.baseFiles;
-    return gulp.src(files)
-        .pipe(gulp.dest(paths.dist.baseDir));
+// 替换目录路径
+function replaceDir(file) {
+    return file.replace(`${paths.src.baseDir}`, `${paths.dist.baseDir}`);
 }
-
 
 //监听文件
 function watch() {
@@ -85,13 +89,14 @@ function watch() {
 function watchHandler(event, file) {
     log(`${gutil.colors.yellow(file)} ${event}, running task...`);
 
+    file = file.replace(/\\/, '/');    //替换路径分隔符, 只替换第一个'\', 重要！
     let extname = path.extname(file);
     if (event === 'unlink') {
-        let tmp = file.replace(`${paths.src.baseDir}/`, `${paths.dist.baseDir}/`);
+        let tmp = replaceDir(file);
         if (extname === '.less') {
             tmp = tmp.replace(extname, '.wxss');
         }
-        del([tmp]);
+        del(tmp);
     } else {
         if (extname === '.less') {
             compileLESS(file);  // less 文件
@@ -111,12 +116,12 @@ function uploadFTP() {
 
 /*======= 注冊任務 =======*/
 
-gulp.task('clean', cleanDist);  // 删除任务
+gulp.task('clean', removeFiles);  // 删除任务
 gulp.task('FTP', uploadFTP);    // 上传FTP
 
 //默认任务
 gulp.task('default', gulp.series(
-    cleanDist,
+    removeFiles,
     copyFiles,
     gulp.parallel(
         compileLESS,
