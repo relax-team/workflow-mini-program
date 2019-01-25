@@ -82,7 +82,7 @@ function replaceDir(file) {
 
 //监听文件
 function watch() {
-    let watcher = gulp.watch([paths.src.baseDir], {ignored: /[\/\\]\./});
+    let watcher = gulp.watch([paths.src.baseDir], {ignored: /[/\\]\./});
     return watcher.on('all', watchHandler);
 }
 
