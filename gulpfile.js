@@ -69,7 +69,7 @@ function compileLESS(file) {
             return 2 * num + 'rpx'; //替换1px为2rpx， 0.5px为1rpx
         }))
         .pipe(rename({'extname': '.wxss'}))     //修改文件类型
-        .pipe(replace('.scss', '.wxss'))        //替换引用less时的路径
+        .pipe(replace('.less', '.wxss'))        //替换引用less时的路径
         .pipe(gulpif(!!config.assetsPath, replace('@assets', config.assetsPath)))
         .pipe(gulp.dest(paths.dist.baseDir));
 }
