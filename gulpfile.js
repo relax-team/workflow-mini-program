@@ -14,19 +14,15 @@ const gulp = require('gulp'),
     replace = require('gulp-replace'),
     less = require('gulp-less'),
     gutil = require('gulp-util'),
-    sftp = require('gulp-sftp');      // 自动部署静态资源
+    sftp = require('gulp-sftp');
 
-/*===== 配置文件，可修改 ====*/
-const config = {
-    assetsCDN: 'https://cdn.aliyun.cn',
-    ftp: {
-        host: '',
-        port: 20021,
-        user: '',
-        pass: '',
-        remotePath: ''
-    }
-};
+/*===== 获取用户配置文件，可修改 ====*/
+let config;
+try {
+    config = require('./config.js');
+} catch (e) {
+    log(gutil.colors.red('丢失配置文件config.js'));
+}
 
 /*===== 相关路径配置 ====*/
 let paths = {
@@ -44,6 +40,7 @@ let paths = {
 };
 
 /*===== 定义主要方法 ====*/
+
 // 日志输出
 function log() {
     let args = Array.prototype.slice.call(arguments);
@@ -57,48 +54,40 @@ function cleanDist() {
 
 // 编译.less
 function compileLESS(file) {
-    return gulp.src(paths.src.lessFiles)
+    let files = typeof file === 'string' ? file : paths.src.lessFiles;
+    return gulp.src(files)
         .pipe(less())
         .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 // 复制.wxml
 function copyWXML(file) {
-    return gulp.src(paths.src.wxmlFiles)
-        .pipe(gulpif(config.assetsCDN, replace('@assets', config.assetsCDN)))
+    let files = typeof file === 'string' ? file : paths.src.wxmlFiles;
+    return gulp.src(files)
+        .pipe(gulpif(config.assetsPath, replace('@assets', config.assetsPath)))
         .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 // 复制文件
 function copyFiles(file) {
-    return gulp.src(paths.src.baseFiles)
+    let files = typeof file === 'string' ? file : paths.src.baseFiles;
+    return gulp.src(files)
         .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 
 //监听文件
-function watch(cb) {
+function watch() {
     let watcher = gulp.watch([paths.src.baseDir], {ignored: /[\/\\]\./});
-    watcher
-        .on('add', function (file) {
-            watchHandler('add', file);
-        })
-        .on('change', function (file) {
-            watchHandler('changed', file);
-        })
-        .on('unlink', function (file) {
-            watchHandler('removed', file);
-        });
-
-    cb();
+    return watcher.on('all', watchHandler);
 }
 
-function watchHandler(type, file) {
-    log(gutil.colors.yellow(file) + ' is ' + type);
+function watchHandler(event, file) {
+    log(`${gutil.colors.yellow(file)} ${event}, running task...`);
 
     let extname = path.extname(file);
-    if (type === 'removed') {
-        let tmp = file.replace(paths.src.baseDir + '/', paths.dist.baseDir + '/');
+    if (event === 'unlink') {
+        let tmp = file.replace(`${paths.src.baseDir}/`, `${paths.dist.baseDir}/`);
         if (extname === '.less') {
             tmp = tmp.replace(extname, '.wxss');
         }
@@ -114,10 +103,16 @@ function watchHandler(type, file) {
     }
 }
 
+// 上传静态资源文件到FTP
+function uploadFTP() {
+    return gulp.src(paths.src.assetsDir)
+        .pipe(sftp(config.ftp));
+}
 
 /*======= 注冊任務 =======*/
-// 删除任务
-gulp.task('clean', cleanDist);
+
+gulp.task('clean', cleanDist);  // 删除任务
+gulp.task('FTP', uploadFTP);    // 上传FTP
 
 //默认任务
 gulp.task('default', gulp.series(
@@ -129,9 +124,3 @@ gulp.task('default', gulp.series(
     ),
     watch
 ));
-
-// 上传FTP
-gulp.task('ftp', function () {
-    return gulp.src(paths.src.assetsDir)
-        .pipe(sftp(config.ftp));
-});
