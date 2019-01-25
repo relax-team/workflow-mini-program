@@ -63,6 +63,9 @@ function copyFiles(file) {
 function compileLESS(file) {
     let files = typeof file === 'string' ? file : paths.src.lessFiles;
     return gulp.src(files)
+        .pipe(replace(/(\d+)px/gi, function (m, num) {
+            return 2 * num + 'rpx'; //替换1px为2rpx， 0.5px为1rpx
+        }))
         .pipe(less())
         .pipe(gulp.dest(paths.dist.baseDir));
 }
