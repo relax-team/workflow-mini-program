@@ -9,7 +9,7 @@
         "eslint-fix": "eslint src --ext .js --fix"
     },
     "pre-commit": [
-        "eslint"
+        "eslint-fix"
     ],
     "repository": {
         "type": "git",
@@ -27,8 +27,10 @@
         "gulp": "^4.0.0",
         "gulp-if": "^2.0.2",
         "gulp-less": "^4.0.1",
+        "gulp-plumber": "^1.2.1",
         "gulp-rename": "^1.4.0",
         "gulp-replace": "^0.5.4",
+        "gulp-sass": "^4.0.2",
         "gulp-sftp": "^0.1.5",
         "gulp-util": "^3.0.8",
         "pre-commit": "^1.2.2"

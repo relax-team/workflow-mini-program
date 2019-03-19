@@ -1,8 +1,13 @@
 {
     "navigationBarTitleText": "Demo",
+    "enablePullDownRefresh": true,
     "usingComponents": {
         "component-quantity": "../../components/quantity/index",
+        "component-num-roll": "../../components/num-roll/index",
         "component-slide-menu": "../../components/slide-menu/index",
-        "component-marquee": "../../components/marquee/index"
+        "component-marquee": "../../components/marquee/index",
+        "component-modal": "../../components/modal/index",
+        "component-dialog": "../../components/dialog/index",
+        "component-image": "../../components/image/index"
     }
 }

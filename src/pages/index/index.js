@@ -7,17 +7,17 @@ Page({
         scrollLeft: 0,
         currIndex: 0,
         navItem: [
-            {name: '精选', id: 'a'},
-            {name: '美食', id: 'b'},
-            {name: '房费', id: 'c'},
-            {name: '搜索', id: 'd'},
-            {name: '然然', id: 'e'},
-            {name: '运营', id: 'f'},
-            {name: '问问', id: 'g'},
-            {name: '哈哈', id: 'h'},
-            {name: '信息', id: 'h'},
-            {name: '吧腐', id: 'h'},
-            {name: '密码', id: 'h'}
+            {name: '今日精选', id: 'a'},
+            {name: '手机数码', id: 'b'},
+            {name: '电脑办公', id: 'c'},
+            {name: '家用电器', id: 'd'},
+            {name: '服饰内衣', id: 'e'},
+            {name: '个护化妆', id: 'f'},
+            {name: '运动户外', id: 'g'},
+            {name: '母婴呵护', id: 'h'},
+            {name: '家居家装', id: 'i'},
+            {name: '礼品箱包', id: 'j'},
+            {name: '珠宝首饰', id: 'k'}
         ],
         banner: [
             '//m.360buyimg.com/mobilecms/s750x366_jfs/t1/23360/8/4031/468576/5c2dc861E189161bc/bac4293f6060aa5f.jpg!cr_1125x549_0_72!q70.jpg.dpg',
