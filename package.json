@@ -1,7 +1,7 @@
 {
-    "name": "wxmp-mall",
+    "name": "workflow-mini-program",
     "version": "1.0.0",
-    "description": "e-mall system in wechat mini program",
+    "description": "workflow in wechat mini program",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:relax-team/wxmp-mall.git"
+        "url": "git@github.com:relax-team/workflow-mini-program.git"
     },
     "keywords": [
         "wechat mini program"

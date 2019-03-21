@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "商品详情",
-    "usingComponents": {
-        "component-sku": "../../../components/sku/index",
-        "component-image": "../../../components/image/index",
-        "component-dialog": "../../../components/dialog/index"
-    }
-}

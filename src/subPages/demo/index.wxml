@@ -1,31 +1,4 @@
 <view class="list">
-    <view class="item item-quantity">
-        <view class="item-title">数量加减组件</view>
-        <view class="item-content">
-            <component-quantity bind:change="onQuantityChange"></component-quantity>
-        </view>
-    </view>
-    <view class="item item-num-roll">
-        <view class="item-title">数值滚动</view>
-        <view class="item-content">
-            <component-num-roll id="num-roll" value="{{numRoll.value}}"></component-num-roll>
-        </view>
-    </view>
-    <view class="item item-slide-menu">
-        <view class="item-title">侧滑菜单</view>
-        <view class="item-content">
-            <component-slide-menu class="slide-menu-wrapper" wx:for="{{slideMenu.list}}" wx:key="{{item.id}}" data-item="{{item}}" bind:delete="onDelete">
-                <view class="title">{{item.title}}</view>
-            </component-slide-menu>
-        </view>
-    </view>
-    <view class="item item-modal">
-        <view class="item-title">modal</view>
-        <view class="item-content">
-            <button class="u-btn btn-modal" bindtap="modalShow">点击显示</button>
-            <component-modal id="modal"></component-modal>
-        </view>
-    </view>
     <view class="item item-dialog">
         <view class="item-title">dialog</view>
         <view class="item-content">
